@@ -1,0 +1,17 @@
+# NetCDF files #
+################
+*.nc
+*.csv
+
+# subdirectorys #
+#################
+Build/*
+Nonlinear/*
+
+# Compiled source #
+###################
+coawst*
+
+# OS generated files #
+######################
+._*
