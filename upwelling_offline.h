@@ -21,7 +21,7 @@
 #define UPWELLING
 #define ANA_GRID
 #undef ANA_INITIAL
-#define ANA_SMFLUX
+#undef ANA_SMFLUX
 #define ANA_SPFLUX
 #define ANA_BPFLUX
 
