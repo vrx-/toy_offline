@@ -15,9 +15,9 @@ python make_clm_from_his.py
 
 python make_nud.py
 
-python make_bio_csv.py (the make_bio* have to be run after the others in that order, the order of the others doesn't matter)
+python make_bio_csv.py 
 
-python make_bio_ini.py 
+python make_bio_ini.py (this one should be the last, the order of the others doesn't matter)
 
 3) compile and run offline biology
 
