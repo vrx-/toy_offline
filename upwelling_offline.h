@@ -29,10 +29,7 @@
 #define BIOLOGY
 #define OFFLINE_BIOLOGY
 #define BIO_FENNEL
-
 #undef ANA_BIOLOGY
-#define ANA_SPFLUX
-#define ANA_BPFLUX
 
 #define NONLIN_EOS
 #define SOLAR_SOURCE
@@ -43,5 +40,5 @@
 #define BIO_SEDIMENT
 #define DIAGNOSTICS_BIO
 
-#undef OCLIMATOLOGY
+#define OCLIMATOLOGY
 #define USE_DEBUG
