@@ -76,7 +76,7 @@ def make_frc(rootdir='../project/',
             frc[var].long_name = vars[var]['long_name']
             frc[var].units = vars[var]['units']
             frc[var].field = vars[var]['field']
-            frc[var].time = vars[var]['dims'][0]  
+        frc[var].time = vars[var]['dims'][0]  
           
 
     for var in vars:
