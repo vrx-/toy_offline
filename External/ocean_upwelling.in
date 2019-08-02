@@ -106,8 +106,8 @@ GridsInLayer =  1
 ! shared-memory configurations used to determine tile horizontal range
 ! indices (Istr,Iend) and (Jstr,Jend), [1:Ngrids].
 
-      NtileI == 1                               ! I-direction partition
-      NtileJ == 2                               ! J-direction partition
+      NtileI == 2                               ! I-direction partition
+      NtileJ == 4                               ! J-direction partition
 
 ! Set lateral boundary conditions keyword. Notice that a value is expected
 ! for each boundary segment per nested grid for each state variable.
@@ -881,7 +881,7 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 ! NetCDF file is special and complex. It is currently generated using
 ! the script "matlab/grid/contact.m" from the Matlab repository.
 
-     NGCNAME =  ocean_ngc.nc
+!     NGCNAME =  ocean_ngc.nc
 
 ! Input lateral boundary conditions and climatology file names.  The
 ! USER has the option to split input data time records into several
@@ -947,12 +947,12 @@ Dout(iTvdif) == T T     ! temp_vdiff, ...    vertical diffusion
 
 ! Input ASCII parameter filenames.
 
-     APARNAM =  ROMS/External/s4dvar.in
-     SPOSNAM =  ROMS/External/stations.in
-     FPOSNAM =  ROMS/External/floats.in
+!     APARNAM =  ROMS/External/s4dvar.in
+!     SPOSNAM =  ROMS/External/stations.in
+!     FPOSNAM =  ROMS/External/floats.in
      BPARNAM =  External/bio_Fennel.in
      SPARNAM =  External/sediment.in
-     USRNAME =  ROMS/External/MyFile.dat
+!     USRNAME =  ROMS/External/MyFile.dat
 
 !
 !  GLOSSARY:

@@ -3,7 +3,7 @@
 !
 !svn $Id: varinfo.dat 830 2017-01-24 21:21:11Z arango $
 !========================================================= Hernan G. Arango ===
-!  Copyright (c) 2002-2017 The ROMS/TOMS Group                                !
+!  Copyright (c) 2002-2018 The ROMS/TOMS Group                                !
 !    Licensed under a MIT/X style license                                     !
 !    See License_ROMS.txt                                                     !
 !==============================================================================
@@ -3160,14 +3160,41 @@
   'r2dvar'
   1.0d0
 
-'swrad'                                            ! Input
-  'solar shortwave radiation flux climatology'
-  'watt meter-2'                                   ! [Watt/m2]
-  'shortwave radiation, scalar, series'
-  'srf_time'
-  'idSrad'
+!
+!------------------------------------------------------------------------------
+!  Nudging to climatology time scales. We can have a generic variable for all
+!  tracer nudging time scales or individual variables for each active and
+!  passive tracer. The metadata for the individual variables is set internally
+!  in "mod_ncparam".
+!------------------------------------------------------------------------------
+!
+
+'M2_NudgeCoef'                                     ! Input
+  '2D momentum inverse nudging coefficients'
+  'day-1'                                          ! [1/s]
+  'M2_NudgeCoef, scalar'
+  'nulvar'
+  'idM2nc'
   'r2dvar'
-  1.0d0
+  1.157407d-5                                      ! 1/86400
+
+'M3_NudgeCoef'                                     ! Input
+  '3D momentum inverse nudging coefficients'
+  'day-1'                                          ! [1/s]
+  'M3_NudgeCoef, scalar'
+  'nulvar'
+  'idM3nc'
+  'r3dvar'
+  1.157407d-5                                      ! 1/86400
+
+'tracer_NudgeCoef'                                 ! Input
+  'generic tracer inverse nudging coefficients'
+  'day-1'                                          ! [1/s]
+  'tracer_NudgeCoef, scalar'
+  'nulvar'
+  'idgTnc'
+  'r3dvar'
+  1.157407d-5                                      ! 1/86400
 
 !
 !------------------------------------------------------------------------------
@@ -3256,6 +3283,15 @@
   'v3d_time'
   'idVads'
   'v3dvar'
+  1.0d0
+
+'w'                                                ! Input
+  'w-momentum component functional'
+  'meter second-1'                                 ! [m/s]
+  'w-velocity, scalar, series'
+  'v3d_time'
+  'idWads'
+  'w3dvar'
   1.0d0
 
 'temp'                                             ! Input
@@ -4641,6 +4677,15 @@
   'Oxygen, scalar, series'
   'ocean_time'
   'idTads(iOxyg)'
+  'r3dvar'
+  1.0d0
+
+'respiration'                                      ! Input
+  'total respiration rate'
+  'millimole_oxygen meter-3 day-1'                 ! [millimoe/m3/day]
+  'respiration, scalar, series'
+  'respiration_time'
+  'idResR'
   'r3dvar'
   1.0d0
 
@@ -8679,6 +8724,24 @@
   'nulvar'
   1.0d0
 
+'obs_lon'                                         ! Input
+  'observation longitude'
+  'degrees_east'                                  ! [degrees_east]
+  'nulvar'
+  'datum'
+  'idOlon'
+  'nulvar'
+  1.0d0
+
+'obs_lat'                                         ! Input
+  'observation latitude'
+  'degrees_north'                                 ! [degrees_north]
+  'nulvar'
+  'datum'
+  'idOlat'
+  'nulvar'
+  1.0d0
+
 'obs_depth'                                        ! Input/Output
   'depth of observation'
   'meter'                                          ! [m]
@@ -8721,6 +8784,15 @@
   'nulvar'
   'datum'
   'idOval'
+  'nulvar'
+  1.0d0
+
+'obs_meta'                                         ! Input
+  'observation meta value'
+  'nondimensional'                                 ! [Meta units]
+  'nulvar'
+  'datum'
+  'idOmet'
   'nulvar'
   1.0d0
 
@@ -8813,6 +8885,25 @@
   'idMOMf'
   'nulvar'
   1.0d0
+
+'BgError_value'                                    ! Output
+  'Background error at observation locations'
+  'nulvar'
+  'nulvar'
+  'datum'
+  'idBgEr'
+  'nulvar'
+  1.0d0
+
+'BgThresh_value'                                   ! Output
+  'Threshold for background quality control check of observations'
+  'nulvar'
+  'nulvar'
+  'datum'
+  'idBgTh'
+  'nulvar'
+  1.0d0
+
 !
 !------------------------------------------------------------------------------
 !  SAV_BIOMASS properties (Module in Biology folder).
@@ -9100,3 +9191,34 @@
   'idTton'
   'r2dvar'
   1.0d0
+!
+!------------------------------------------------------------------------------
+!    Oil Fields on a 3D Eulerian Grid
+!------------------------------------------------------------------------------
+! DDMITRY
+'Doil_mean'                                        ! Output
+  'Mean size of oil droplet in Eulerian 3D grid'   
+  'm'                                              ! [m] 
+  'Doil_mean, scalar, series'
+  'ocean_time'
+  'idDoil'
+  'r3dvar'
+  1.0d0
+
+'Coil_comp'
+  'Oil concentration in grid cells per component'
+  'kg/m3'
+  'Coil_comp, scalar, series'
+  'ocean_time'
+  'idCoil'
+  'r4dvar'
+   1.0d0
+
+'Nflt_grid'
+  'Number of Lagrangian oil floats in grid cells'
+  'none'
+  'Nflt_grid, scalar, series'
+  'ocean_time'
+  'idNflt'
+  'r3dvar'
+   1.0d0

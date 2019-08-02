@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 
 def make_clm(rootdir='../project/',
-             his_name='../toy/ocean_his.nc',
+             his_name='ocean_his.nc',
              clm_name='ocean_clm.nc'):
     
     assert os.path.exists(rootdir), ('%s does not exist.' % rootdir)
